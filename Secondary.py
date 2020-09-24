@@ -1,6 +1,9 @@
 import sqlite3
 from os import system
 
+
+calories,Protein,Fats,Carbohydrates=int()
+
 db=sqlite3.connect('food.db')
 sql= db.cursor()
 
@@ -95,8 +98,19 @@ def del_element():
 
 def end():
 	clear()
-	for i in list_food:
-		print(i)
+	for i in range(0,len(list_food)):
+		print(list_food[i])
+		calories+=list_food[i][1]
+		Protein+=list_food[i][2]
+		Fats+=list_food[i][3]
+		Carbohydrates+=list_food[i][4]
+	print(f'Общая Калорийность: {calories}ккал')
+	print(f'Общаие содержание белка: {Protein}')
+	print(f'Общаие содержание жиров: {Fats}')
+	print(f'Общаие содержание углеводов: {Carbohydrates}')
+
+
+
 	quit()
 
 
