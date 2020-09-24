@@ -2,7 +2,7 @@ import sqlite3
 from os import system
 
 
-calories=Protein=Fats=Carbohydrates=int()
+calories,Protein,Fats,Carbohydrates=0,0,0,0
 
 db=sqlite3.connect('food.db')
 sql= db.cursor()
