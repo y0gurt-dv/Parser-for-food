@@ -2,8 +2,6 @@ import sqlite3
 from os import system
 
 
-calories,Protein,Fats,Carbohydrates=0,0,0,0
-
 db=sqlite3.connect('food.db')
 sql= db.cursor()
 
@@ -98,6 +96,7 @@ def del_element():
 
 def end():
 	clear()
+	calories,Protein,Fats,Carbohydrates=0,0,0,0
 	for i in range(0,len(list_food)):
 		print(list_food[i])
 		calories+=list_food[i][1]
