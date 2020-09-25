@@ -34,30 +34,27 @@ def losses():
 	except:
 		print('Некорректный ввод ')
 		losses()
-	return_menu()
+	if boole=='y':
+		prise()
 
-def prise(weight):
-	cost=int(input('Введите цену продукта: '))
+def prise():
+	cost=input('Введите цену продукта: ')
 	try:
-		list_food[-1].append((int(cost)/1000)*int(weight))
-		losses()
+		list_food[-1].append((int(cost)/1000)*int(list_food[-1][5]))
 	except:
 		print('Некорректный ввод ')
 		prise()
 
 def mass():
 	weight=input('Введите массу продукта: ')
+	list_food[-1].append(weight)
 	try:
 		for i in range(1,5):
 			list_food[-1][i]=list_food[-1][i]*(int(weight)/100)
 	except:
 		print('Некорректный ввод ')
 		mass()
-	if boole=='y':
-		prise(weight)
-	else:
-		losses()
-
+	losses()
 
 def menu():
 	print('\t1)Добавить продукт')
@@ -69,11 +66,11 @@ def menu():
 def print_list():
 	clear()
 	if boole=='y':
-		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы ,Цена')
+		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы ,Вес,Цена')
 		for i in list_food:
 			print(i)
 	else:
-		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы')
+		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы,Вес')
 		for i in list_food:
 			print(i)
 	return_menu()
@@ -139,7 +136,7 @@ def end():
 			Protein+=list_food[i][2]
 			Fats+=list_food[i][3]
 			Carbohydrates+=list_food[i][4]
-			prise+=list_food[i][5]
+			prise+=list_food[i][6]
 		print(f'Общая Калорийность: {calories}ккал')
 		print(f'Общие содержание белка: {Protein}')
 		print(f'Общие содержание жиров: {Fats}')
@@ -162,12 +159,12 @@ def end():
 
 
 def consider_prise():
-	inp=input("Учитывать ли цену(Y/N): ").lower().strip()
-	if (inp!='y') and (inp!='n'):
-		print('Некорректный ввод ')
-		consider_prise()
-	else:
-		return inp
+	while True:
+		inp=input("Учитывать ли цену(Y/N): ").lower().strip()
+		if (inp!='y') and (inp!='n'):
+			print('Некорректный ввод ')
+		else:
+			return inp
 
 
 def main(boole):
