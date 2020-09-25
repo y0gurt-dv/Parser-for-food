@@ -4,16 +4,13 @@ from os import system,name
 db=sqlite3.connect('food.db')
 sql= db.cursor()
 list_food=[]
-boole=''
-
-
 
 def clear():
-	if name=='nt':
-		_=system('cls')
-	else:
-		_=system('clear')
-
+	 if name=='nt':
+		 _=system('cls')
+	 else:
+		 _=system('clear')
+	
 
 def return_menu():
 	print('1)Вернуться в меню')
@@ -167,7 +164,7 @@ def consider_prise():
 		return inp
 
 
-def main():
+def main(boole):
 	while True:
 		clear()
 		menu()
@@ -215,14 +212,25 @@ def search():
 
 def start():
 	clear()
+	print('                  ____________           ')
+	print('      /\\        |            |   \\    / ')
+	print('     /  \\       |	     |    \\  /   ')
+	print('    /    \\      |            |     \\/   ')
+	print('   /      \\     |            |     /\\   ')
+	print('  /        \\    |	     |    /  \\   ')
+	print(' /          \\   |            |   /    \\ ')
+	print('/            \\  |____________|  /      \\')
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
 	if inp=='1': search()
 	elif inp=='2':
+		global boole
 		boole=consider_prise()
-		main()
+		main(boole)
 	else:
 		print('Некорректный ввод ')
 		start()
+
+
 start()
