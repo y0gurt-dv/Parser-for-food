@@ -69,6 +69,7 @@ def menu():
 	print('\t3)Удалить элемент из списка')
 	print('\t4)Закончить и вывести список')
 	print('\t5)Очистить список')
+	print('\t6)Вернуться назад и ОЧИСТИТЬ список')
 
 def print_list():
 	clear()
@@ -204,6 +205,7 @@ def consider_prise():
 			return inp
 
 
+
 def main(boole):
 	while True:
 		clear()
@@ -216,6 +218,7 @@ def main(boole):
 		elif inp=='3': del_element()
 		elif inp=='4': end()
 		elif inp=='5': list_food=[]
+		elif inp=='6': break
 		else: print('Некорректный ввод ')
 
 def search():
@@ -264,5 +267,5 @@ def start():
 		print('Некорректный ввод ')
 		start()
 
-
-start()
+while True:
+	start()
