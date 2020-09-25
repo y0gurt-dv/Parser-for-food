@@ -10,7 +10,6 @@ def clear():
 	 else:
 		 _=system('clear')
 	
-
 def return_menu():
 	print('1)Вернуться в меню')
 	inp=input('>>> ').strip()
@@ -19,11 +18,6 @@ def return_menu():
 		return
 	else:
 		return_menu()
-
-
-
-
-
 
 def losses():
 	loss=input('Введите потери при холодной: ').strip()
@@ -81,7 +75,6 @@ def print_list():
 			print(f'\tУглеводы:{i[4]}')
 			print(f'\tМасса:{i[5]}')
 			print(f'\tЦена:{i[6]}')
-
 	else:
 		for i in list_food:
 			print(f'-----{i[0].capitalize()}')
@@ -91,7 +84,6 @@ def print_list():
 			print(f'\tУглеводы:{i[4]}')
 			print(f'\tМасса:{i[5]}')
 	return_menu()
-
 
 def add_el():
 	food=input("Введите название продукта: ").strip().lower()
@@ -129,7 +121,6 @@ def del_element():
 	clear()
 	for i in range(0,len(list_food)):
 		print(f'{i}) {list_food[i]}')
-
 	print(f'{len(list_food)})Вернуться в меню')
 	inp=input('>>> ').strip()
 	if inp==str(len(list_food)):
@@ -192,7 +183,6 @@ def end():
 		print(f'Общие содержание белка: {Protein}')
 		print(f'Общие содержание жиров: {Fats}')
 		print(f'Общие содержание углеводов: {Carbohydrates}')
-
 
 def consider_prise():
 	while True:
