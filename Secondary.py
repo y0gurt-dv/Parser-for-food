@@ -212,14 +212,6 @@ def search():
 
 def start():
 	clear()
-	print('                  ____________           ')
-	print('      /\\        |            |   \\    / ')
-	print('     /  \\       |	     |    \\  /   ')
-	print('    /    \\      |            |     \\/   ')
-	print('   /      \\     |            |     /\\   ')
-	print('  /        \\    |	     |    /  \\   ')
-	print(' /          \\   |            |   /    \\ ')
-	print('/            \\  |____________|  /      \\')
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
