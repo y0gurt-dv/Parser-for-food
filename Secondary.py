@@ -4,6 +4,9 @@ from os import system,name
 db=sqlite3.connect('food.db')
 sql= db.cursor()
 list_food=[]
+boole=''
+
+
 
 def clear():
 	if name=='nt':
@@ -32,7 +35,7 @@ def losses():
 		for i in range(1,5):
 			list_food[-1][i]-=list_food[-1][i]*(int(loss)/100)
 	except:
-		print('Некорректный ввод')
+		print('Некорректный ввод ')
 		losses()
 	return_menu()
 
@@ -40,8 +43,9 @@ def prise(weight):
 	cost=int(input('Введите цену продукта: '))
 	try:
 		list_food[-1].append((int(cost)/1000)*int(weight))
+		losses()
 	except:
-		print('Некорректный ввод')
+		print('Некорректный ввод ')
 		prise()
 
 def mass():
@@ -50,12 +54,14 @@ def mass():
 		for i in range(1,5):
 			list_food[-1][i]=list_food[-1][i]*(int(weight)/100)
 	except:
-		print('Некорректный ввод')
+		print('Некорректный ввод ')
 		mass()
 	if boole=='y':
 		prise(weight)
 	else:
 		losses()
+
+
 def menu():
 	print('\t1)Добавить продукт')
 	print('\t2)Вывод списка продуктов')
@@ -85,7 +91,7 @@ def add_el():
 			for i in range(len(result)):
 				print(f'\t{i}){result[i][0]}')
 			print(f'{len(result)})Найти другой продукт')
-			inp=input('>>>').strip()
+			inp=input('>>> ').strip()
 			if inp==str(len(result)):
 				clear()
 				add_el()
@@ -95,7 +101,7 @@ def add_el():
 					list_food.append(list(sql.fetchone()))
 					mass()
 				except:
-					print('Некорректный ввод')
+					print('Некорректный ввод ')
 					add_el()
 		else:
 			sql.execute(f"SELECT * FROM all_about_food WHERE food = '{food}'")
@@ -116,7 +122,7 @@ def del_element():
 			list_food.pop(int(inp))
 			del_element()
 		except:
-			print('Некорректный ввод')
+			print('Некорректный ввод ')
 			del_element()
 
 def end():
@@ -155,7 +161,7 @@ def end():
 def consider_prise():
 	inp=input("Учитывать ли цену(Y/N): ").lower().strip()
 	if (inp!='y') and (inp!='n'):
-		print('Некорректный ввод')
+		print('Некорректный ввод ')
 		consider_prise()
 	else:
 		return inp
@@ -173,7 +179,7 @@ def main():
 		elif inp=='3': del_element()
 		elif inp=='4': end()
 		elif inp=='5': list_food=[]
-		else: print('Некорректный ввод')
+		else: print('Некорректный ввод ')
 
 def search():
 	food=input("Введите название продукта: ").strip().lower()
@@ -200,12 +206,13 @@ def search():
 					print(sql.fetchone())
 					pass
 				except:
-					print('Некорректный ввод')
+					print('Некорректный ввод ')
 					search()
 		else:
 			sql.execute(f"SELECT * FROM all_about_food WHERE food = '{food}'")
 			print(sql.fetchone())
 			pass
+
 def start():
 	print('1)Поиск')
 	print('2)Составление таблицы')
@@ -215,6 +222,6 @@ def start():
 		boole=consider_prise()
 		main()
 	else:
-		print('Некорректный ввод')
+		print('Некорректный ввод ')
 		start()
 start()
