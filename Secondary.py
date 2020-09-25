@@ -27,9 +27,9 @@ def return_menu():
 
 
 def losses():
-	loss=input('Введите потери при холодной: ')
+	loss=input('Введите потери при холодной: ').strip()
 	try:
-		for i in range(1,5):
+		for i in range(1,6):
 			list_food[-1][i]-=list_food[-1][i]*(int(loss)/100)
 	except:
 		print('Некорректный ввод ')
@@ -40,14 +40,16 @@ def losses():
 def prise():
 	cost=input('Введите цену продукта: ')
 	try:
-		list_food[-1].append((int(cost)/1000)*int(list_food[-1][5]))
+		list_food[-1].append((int(cost)/1000)*int(list_food[-1][-1]))
+		list_food[-1].pop()
 	except:
 		print('Некорректный ввод ')
 		prise()
 
 def mass():
 	weight=input('Введите массу продукта: ')
-	list_food[-1].append(weight)
+	list_food[-1].append(int(weight))
+	list_food[-1].append(int(weight))
 	try:
 		for i in range(1,5):
 			list_food[-1][i]=list_food[-1][i]*(int(weight)/100)
@@ -66,13 +68,23 @@ def menu():
 def print_list():
 	clear()
 	if boole=='y':
-		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы ,Вес,Цена')
 		for i in list_food:
-			print(i)
+			print(f'-----{i[0].capitalize()}')	
+			print(f'\tКалорийность:{i[1]}')
+			print(f'\tБелки:{i[2]}')
+			print(f'\tЖиры:{i[3]}')
+			print(f'\tУглеводы:{i[4]}')
+			print(f'\tМасса:{i[5]}')
+			print(f'\tЦена:{i[6]}')
+
 	else:
-		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы,Вес')
 		for i in list_food:
-			print(i)
+			print(f'-----{i[0].capitalize()}')
+			print(f'\tКалорийность:{i[1]}')
+			print(f'\tБелки:{i[2]}')
+			print(f'\tЖиры:{i[3]}')
+			print(f'\tУглеводы:{i[4]}')
+			print(f'\tМасса:{i[5]}')
 	return_menu()
 
 
