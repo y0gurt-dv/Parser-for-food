@@ -107,7 +107,7 @@ def end():
 		Protein+=list_food[i][2]
 		Fats+=list_food[i][3]
 		Carbohydrates+=list_food[i][4]
-	print(f'Общие Калорийность: {calories}ккал')
+	print(f'Общая Калорийность: {calories}ккал')
 	print(f'Общие содержание белка: {Protein}')
 	print(f'Общие содержание жиров: {Fats}')
 	print(f'Общие содержание углеводов: {Carbohydrates}')
