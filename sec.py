@@ -25,8 +25,8 @@ Food_calories=config.Food_calories
 for i in Food_calories:
 	for w in i:
 		f+=1
-		sql.execute(f"INSERT INTO all_about_food VALUES (?, ?, ?, ?, ?)",(w['food'].lower(),w['calories'],w['Protein'],w['Fats'],w['Carbohydrates']))
-		print(str(str(w['food'].lower())+' '+str(f)))
+		sql.execute(f"INSERT INTO all_about_food VALUES (?, ?, ?, ?, ?)",(w['food'],w['calories'],w['Protein'],w['Fats'],w['Carbohydrates']))
+		print(str(str(w['food'])+' '+str(f)))
 		db.commit()
 
 

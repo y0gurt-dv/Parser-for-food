@@ -1,5 +1,5 @@
 import sqlite3
-from os import system,name
+from os import system
 
 
 db=sqlite3.connect('food.db')
@@ -8,14 +8,12 @@ sql= db.cursor()
 list_food=[]
 
 def clear():
-	if name=='nt':
-		_=system('cls')
-	else:
-		_=system('clear')
+	_=system('clear')
+
 
 
 def losses():
-	loss=input('Введите потери при холодной: ')
+	loss=input('Введите потери: ')
 	try:
 		for i in range(1,5):
 			list_food[-1][i]-=list_food[-1][i]*(int(loss)/100)
@@ -23,7 +21,7 @@ def losses():
 		print('Некорректный ввод')
 		losses()
 	print('1)Вернуться в меню')
-	inp=input('>>> ').strip()
+	inp=input('>>> ')
 	if inp=='1':
 		pass
 	else:
@@ -85,7 +83,7 @@ def del_element():
 		print(f'{i}) {list_food[i]}')
 
 	print(f'{len(list_food)})Вернуться в меню')
-	inp=input('>>> ').strip()
+	inp=input('>>> ')
 	if inp==str(len(list_food)):
 		pass
 	else:
@@ -109,6 +107,9 @@ def end():
 	print(f'Общаие содержание белка: {Protein}')
 	print(f'Общаие содержание жиров: {Fats}')
 	print(f'Общаие содержание углеводов: {Carbohydrates}')
+
+
+
 	quit()
 
 
@@ -117,7 +118,7 @@ def end():
 while True:
 	clear()
 	menu()
-	inp=input('>>> ').strip()
+	inp=input('>>> ')
 	if inp=='1': 
 		clear()
 		search()
