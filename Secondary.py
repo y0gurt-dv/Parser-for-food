@@ -145,7 +145,14 @@ def del_element():
 def end():
 	clear()
 	if boole.lower()=='y':
-		count=int(input('Введите цисло порций: '))
+		while True:
+			count=input('Введите цисло порций: ').strip()
+			try:
+				100/int(count)
+				break
+			except:
+				print('Некорректный ввод ')
+				clear()
 		calories,Protein,Fats,Carbohydrates,prise=0,0,0,0,0
 		for i in range(0,len(list_food)):
 			calories+=list_food[i][1]
@@ -166,7 +173,7 @@ def end():
 		print(f'Общие содержание жиров: {Fats}')
 		print(f'Общие содержание углеводов: {Carbohydrates}')
 		print(f'Общая цена: {prise}')
-		print(f'Цена каждой порции: {prise/count}')
+		print(f'Цена каждой порции: {prise/int(count)}')
 	else:
 		calories,Protein,Fats,Carbohydrates=0,0,0,0
 		for i in range(0,len(list_food)):
