@@ -68,8 +68,14 @@ def menu():
 
 def print_list():
 	clear()
-	for i in list_food:
-		print(i)
+	if boole=='y':
+		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы ,Цена')
+		for i in list_food:
+			print(i)
+	else:
+		print('Элементы : Название ,Калорийность ,Белки ,Жиры ,Углеводы')
+		for i in list_food:
+			print(i)
 	return_menu()
 
 
