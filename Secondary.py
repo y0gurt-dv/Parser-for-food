@@ -19,6 +19,7 @@ def return_menu():
 	inp=input('>>> ').strip()
 	if inp=='1':
 		pass
+		return
 	else:
 		return_menu()
 
@@ -73,9 +74,21 @@ def search():
 			print('Похожие:')
 			sql.execute(f"SELECT food FROM all_about_food WHERE food LIKE '%{food}%'")
 			result= sql.fetchall()
-			for i in result:
-				print('\t'+i[0])
-			search()
+			for i in range(len(result)):
+				print(f'\t{i}){result[i][0]}')
+			print(f'{len(result)})Найти другой продукт')
+			inp=input('>>>').strip()
+			if inp==str(len(result)):
+				clear()
+				search()
+			else:
+				try:
+					sql.execute(f"SELECT * FROM all_about_food WHERE food = '{result[int(inp)][0]}'")
+					list_food.append(list(sql.fetchone()))
+					mass()
+				except:
+					print('Некорректный ввод')
+					search()
 		else:
 			sql.execute(f"SELECT * FROM all_about_food WHERE food = '{food}'")
 			list_food.append(list(sql.fetchone()))
