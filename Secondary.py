@@ -3,7 +3,6 @@ from os import system,name
 
 db=sqlite3.connect('food.db')
 sql= db.cursor()
-list_food=[]
 
 def clear():
 	 if name=='nt':
@@ -34,7 +33,7 @@ def losses():
 	except:
 		print('Некорректный ввод ')
 		losses()
-	if boole=='y':
+	if boole=='1':
 		prise()
 
 def prise():
@@ -73,7 +72,7 @@ def menu():
 
 def print_list():
 	clear()
-	if boole=='y':
+	if boole=='1':
 		for i in list_food:
 			print(f'-----{i[0].capitalize()}')	
 			print(f'\tКалорийность:{i[1]}')
@@ -145,7 +144,7 @@ def del_element():
 
 def end():
 	clear()
-	if boole.lower()=='y':
+	if boole.lower()=='1':
 		while True:
 			count=input('Введите цисло порций: ').strip()
 			try:
@@ -193,18 +192,24 @@ def end():
 		print(f'Общие содержание белка: {Protein}')
 		print(f'Общие содержание жиров: {Fats}')
 		print(f'Общие содержание углеводов: {Carbohydrates}')
-	quit()
 
 
 def consider_prise():
 	while True:
-		inp=input("Учитывать ли цену(Y/N): ").lower().strip()
-		if (inp!='y') and (inp!='n'):
+		inp=input("Учитывать ли цену(1/0): ").lower().strip()
+		if (inp!='1') and (inp!='0'):
 			print('Некорректный ввод ')
 		else:
 			return inp
 
-
+def reload_programm():
+	print('1)Вернуться в начало программы')	
+	while True: 
+		inp=input('>>> ').strip()
+		if inp=='1':
+			break
+		else:
+			print('Некорректный ввод ')
 
 def main(boole):
 	while True:
@@ -216,7 +221,10 @@ def main(boole):
 			add_el()
 		elif inp=='2': print_list()
 		elif inp=='3': del_element()
-		elif inp=='4': end()
+		elif inp=='4': 
+			end()
+			reload_programm()
+			break
 		elif inp=='5': list_food=[]
 		elif inp=='6': break
 		else: print('Некорректный ввод ')
@@ -255,6 +263,9 @@ def search():
 
 def start():
 	clear()
+	global list_food
+	list_food=[]
+	print(list_food)
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
