@@ -265,7 +265,6 @@ def start():
 	clear()
 	global list_food
 	list_food=[]
-	print(list_food)
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
