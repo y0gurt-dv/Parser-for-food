@@ -17,7 +17,7 @@ links = [{'link': 'https://health-diet.ru/base_of_food/food_24507/', 'name': 'Б
 		 {'link': 'https://health-diet.ru/base_of_food/food_24524/', 'name': 'Хлеб и выпечка'},
 		 {'link': 'https://health-diet.ru/base_of_food/food_24520/', 'name': 'Яйца и продукты из яиц'}]
 
-token='dc76539198208b683f5ec5668900aefec72e978817ead8e52645a949472f90dd13783244650bc39034a11'
+
 
 Food_calories = [[{'food': 'Антилопа', 'calories': 114.0, 'Protein': 22.38, 'Fats': 2.03, 'Carbohydrates': 0.0},
  {'food': 'Антилопа, запеченная', 'calories': 150.0, 'Protein': 29.45, 'Fats': 2.67, 'Carbohydrates': 0.0},

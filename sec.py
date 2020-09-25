@@ -1,10 +1,7 @@
 import sqlite3
 import config
-import vk_api
 
 
-vk_session = vk_api.VkApi(token=config.token)
-api = vk_session.get_api()
 f=int()
 
 db=sqlite3.connect('food.db')
@@ -30,5 +27,3 @@ for i in Food_calories:
 		db.commit()
 
 
-
-api.messages.send(user_id = 439720761 , message= 'Программа закончила', v="5.38" )
