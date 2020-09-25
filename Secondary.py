@@ -45,11 +45,16 @@ def prise():
 	except:
 		print('Некорректный ввод ')
 		prise()
+	return
 
 def mass():
 	weight=input('Введите массу продукта: ')
-	list_food[-1].append(int(weight))
-	list_food[-1].append(int(weight))
+	try:
+		list_food[-1].append(int(weight))
+		list_food[-1].append(int(weight))
+	except:
+		print('Некорректный ввод ')
+		mass()
 	try:
 		for i in range(1,5):
 			list_food[-1][i]=list_food[-1][i]*(int(weight)/100)
