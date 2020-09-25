@@ -148,12 +148,19 @@ def end():
 		count=int(input('Введите цисло порций: '))
 		calories,Protein,Fats,Carbohydrates,prise=0,0,0,0,0
 		for i in range(0,len(list_food)):
-			print(list_food[i])
 			calories+=list_food[i][1]
 			Protein+=list_food[i][2]
 			Fats+=list_food[i][3]
 			Carbohydrates+=list_food[i][4]
 			prise+=list_food[i][6]
+		for i in list_food:
+			print(f'-----{i[0].capitalize()}')	
+			print(f'\tКалорийность:{i[1]}')
+			print(f'\tБелки:{i[2]}')
+			print(f'\tЖиры:{i[3]}')
+			print(f'\tУглеводы:{i[4]}')
+			print(f'\tМасса:{i[5]}')
+			print(f'\tЦена:{i[6]}')
 		print(f'Общая Калорийность: {calories}ккал')
 		print(f'Общие содержание белка: {Protein}')
 		print(f'Общие содержание жиров: {Fats}')
@@ -163,11 +170,17 @@ def end():
 	else:
 		calories,Protein,Fats,Carbohydrates=0,0,0,0
 		for i in range(0,len(list_food)):
-			print(list_food[i])
 			calories+=list_food[i][1]
 			Protein+=list_food[i][2]
 			Fats+=list_food[i][3]
 			Carbohydrates+=list_food[i][4]
+		for i in list_food:
+			print(f'-----{i[0].capitalize()}')	
+			print(f'\tКалорийность:{i[1]}')
+			print(f'\tБелки:{i[2]}')
+			print(f'\tЖиры:{i[3]}')
+			print(f'\tУглеводы:{i[4]}')
+			print(f'\tМасса:{i[5]}')
 		print(f'Общая Калорийность: {calories}ккал')
 		print(f'Общие содержание белка: {Protein}')
 		print(f'Общие содержание жиров: {Fats}')
