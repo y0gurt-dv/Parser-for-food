@@ -214,6 +214,7 @@ def search():
 			pass
 
 def start():
+	clear()
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
