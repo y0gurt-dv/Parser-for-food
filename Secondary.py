@@ -33,7 +33,7 @@ def losses():
 def prise():
 	cost=input('Введите цену продукта: ')
 	try:
-		list_food[-1].append((int(cost)/1000)*int(list_food[-1][-1]))
+		list_food[-1].insert((len(list_food[-1])-1),((int(cost)/1000)*int(list_food[-1][-1])))
 		list_food[-1].pop()
 	except:
 		print('Некорректный ввод ')
@@ -220,6 +220,7 @@ def main(boole):
 		else: print('Некорректный ввод ')
 
 def search():
+
 	food=input("Введите название продукта: ").strip().lower()
 	if food =='':
 		clear()
@@ -258,7 +259,15 @@ def start():
 	print('1)Поиск')
 	print('2)Составление таблицы')
 	inp=input('>>> ').strip()
-	if inp=='1': search()
+	if inp=='1': 
+		search()
+		print('1)Вернуться в меню')
+		while True:
+			inp=input('>>> ').strip()
+			if inp=='1':
+				break
+			else:
+				print('Некорректный ввод ')
 	elif inp=='2':
 		global boole
 		boole=consider_prise()
